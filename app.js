@@ -1,12 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   //----------------- lecture_02 ----------------------------------//
   const cardAdj = [
-    { name: "c", img: "images/c1.jpg" },
-    { name: "css", img: "images/c2.jpg" },
-    { name: "html", img: "images/c3.jpg" },
-    { name: "c", img: "images/c4.jpg" },
-    { name: "css", img: "images/c5.jpg" },
-    { name: "html", img: "images/c6.jpeg" }
+    { name: "c1", img: "images/c1.jpg" },
+    { name: "c2", img: "images/c2.jpg" },
+    { name: "c3", img: "images/c3.jpg" },
+    { name: "c4", img: "images/c4.jpg" },
+    { name: "c5", img: "images/c5.jpg" },
+    { name: "c6", img: "images/c6.jpng" },
+    { name: "c1", img: "images/c1.jpg" },
+    { name: "c2", img: "images/c2.jpg" },
+    { name: "c3", img: "images/c3.jpg" },
+    { name: "c4", img: "images/c4.jpg" },
+    { name: "c5", img: "images/c5.jpg" },
+    { name: "c6", img: "images/c6.jpng" }
   ];
 
   const cuadricula = document.querySelector(".cuadricula");
@@ -29,4 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
       cuadricula.appendChild(carta);
     }
   }
+
+  function voltearCarta() {
+    var cardId = this.getAttribute("data-id");
+    cartasEscogidas.push(cardAdj[cardId].name);
+    cartasEscogidasId.push(cardId);
+    this.setAttribute("src", cardAdj[cardId].img);
+    if (cartasEscogidas.length === 2) {
+      setTimeout(verificarPareja, 1000);
+    }
+  }
+  crearTablero();
 });
